@@ -1,0 +1,25 @@
+		* {box-sizing: border-box; margin: 0px; }
+    
+    body{font-family: Verdana; font-size: 18px; background-color: #e2dfd9;}
+    .food-box{border: 1px solid #000000; margin-bottom: 10px; padding: 15px; height: 1050px;background-color: #c5c69b;}
+    .container-fluid {width: 100%;}
+    #headeris {background-color: #1e2b45; border-radius: 0px; min-height: 60px;}
+    h1 {margin: 0px; font-size: 24px; font-weight: 900; color: #ffffff;} 
+    h2 {margin-bottom: 30px;}
+   h3 {text-align: center; font-size: 20px; font-weight: 800;}
+
+  .navbar-brand {padding-top: 15px; text-decoration: none;}
+
+  .navbar-brand a:hover, .navbar-brand a:focus {
+  text-decoration:none; margin-top: 25px;}
+  /*#navigacija {background-color: #40578f;} */
+
+    #nav-list a:hover {  background-color: #E7E7E7; display: block; font-color:#a9c6d9; font-size: 1.5em;}
+  ul {list-style-type: none; text-align: center; color: #ffffff; margin-top: 10px; padding: 0px;}
+  div #navigacija {padding: 0px;}
+  #nav-list a span {color: #fff;}
+a:link {text-decoration: none;}
+
+     
+   /*a.bottom-of-box {position: absolute; bottom: 20px; text-align: center;}*/
+
