@@ -19,7 +19,7 @@ var speakWord = "Good Bye";
 // See Lecture 52, part 2
 byeSpeaker.say = function speak(name) {
   console.log(speakWord + " " + name);
-  // document.write ('<p>' + speakWord + " " + '<strong>' + name + '</strong>' + '</p>')
+  document.write ('<p>' + speakWord + " " + '<strong>' + name + '</strong>' + '</p>')
 }
 window.byeSpeaker = byeSpeaker;
 
