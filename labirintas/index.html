@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="lt"> 
+<head>
+	<title> labyrinth </title> 
+	<meta charset = "utf-8">
+	<meta http-equiv="X-UA-compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
+	<!--<script src="js-labyrinth.js"></script>-->
+	<link rel="stylesheet" href="styles-labyrinth.css">
+
+
+
+
+</head>
+
+	<body>
+		<h1>Labirintas</h1>
+		<div class="zaidimoLaukas">
+
+			<div class="frame">
+			
+			<script >
+				 var langeliuSk=30;
+				 for (var j = 0; j <langeliuSk; j++) {
+				 	document.write ("<div class='row'>");
+					for (var i = 0; i < langeliuSk; i++) {document.write("<p class='cell'></p>");}
+				 	document.write ("</div>")				
+				}
+				 
+			</script>
+			
+		</div> <!-- frame end -->
+		
+
+		<div class="mygtukai">
+
+			<button onclick="changeTopBorder()">Viršutinis rėmelis</button><br>
+			<button onclick="changeLefBorder()">Kairysis rėmelis</button><br>
+			<button onclick="changeBottomBorder()">apatinis rėmelis</button><br>
+			<button onclick="changeRightBorder()">dešinysis rėmelis</button><br>
+			
+		
+
+			<div class="rodykles">
+			<button class="direction" id="toTop" onclick="toTop(); nextCell();" > ▲ </button>
+			<button class="direction" id="toBottom" onclick="toBottom();nextCell();"> ▼ </button>
+			<br>
+			<button class="direction" id="toLeft" onclick="toLeft(); nextCell();"> ◄ </button>
+			<button class="direction" id="toRight" onclick="toRight(); nextCell();"> ► </button>
+		</div> <!-- mygtukai end -->
+				
+						
+		</div> <!-- zaidimoLaukas end -->
+
+	</div>
+
+
+
+
+
+
+
+
+
+			<script > 
+				document.onkeydown = checkKey;
+				function checkKey(e) {
+			    e = e || window.event;
+			    if (e.keyCode == '38') {
+			    	if (currentCell.style.borderTop == 'none') {
+			    	toTop (); nextCell()
+			    	}
+			    }
+
+			    else if (e.keyCode == '40') {
+			    	if (currentCell.style.borderBottom == 'none') {
+			    	toBottom(); nextCell()
+			    	}
+			    }
+
+			    else if (e.keyCode == '37') {
+			    	if (currentCell.style.borderLeft == 'none') {
+			    	toLeft(); nextCell()
+			    	}
+			    }
+			    else if (e.keyCode == '39') {
+			    	if (currentCell.style.borderRight == 'none') {
+			    	toRight(); nextCell()
+			    	}
+			    }
+			 }
+
+			 var 
+				xx=1; 
+				yy=1; 
+				langeliuSk=30;
+				xy = yy * langeliuSk + xx;
+			var r;
+
+
+			var cells = document.getElementsByTagName('p')
+			
+			for (var i = 0; i < cells.length; i++) {
+				cells[i].style.borderTop ='solid';
+				cells[i].style.borderRight ='solid';
+				cells[i].style.borderBottom ='solid';
+				cells[i].style.borderLeft ='solid';
+			}
+
+			var currentCell = cells [xy];
+			var bottomCell = cells [xy + langeliuSk];
+			var rightCell = cells [xy + 1];
+			var leftCell = cells [xy-1];
+			var topCell = cells [xy-langeliuSk];
+			currentCell.className = 'red';
+			
+	
+			function nextCell () {
+				currentCell.className = 'lightgray';
+				xy = yy * langeliuSk + xx;
+				currentCell = cells [xy];
+				currentCell.status = 'visited';
+				currentCell.className = 'red';
+				//  jei ne krastines eilutes nustatome salia esanciu langeliu numeri 
+				if (xx !=0) {leftCell = cells [xy - 1];} 
+				if (xx != langeliuSk-1) {rightCell = cells [xy + 1];} 
+				if (yy != 0){topCell = cells [xy-langeliuSk];}
+				if (yy != langeliuSk-1) {bottomCell = cells [xy + langeliuSk];} 
+				// if ((xx ==19) && (yy==19)) {
+				// 		document.write("<p class='pabaiga'> Wow !</p>");
+				// console.log ('pabaiga!')
+				// }
+			}
+
+
+			function toTop () { if (yy > 0) {
+				yy--}; console.log(xx,yy,yy * langeliuSk + xx,  currentCell.status); };
+
+			function toBottom () { if (yy < langeliuSk-1) {
+				yy++}; console.log(xx,yy,yy * langeliuSk + xx, currentCell.status); };
+
+			function toLeft () { if (xx > 0) {
+				xx--}; console.log(xx,yy,yy * langeliuSk + xx, currentCell.status); };
+				
+			function toRight () { if (xx < langeliuSk-1) {
+				xx=xx+1}; console.log(xx,yy,yy * langeliuSk + xx, currentCell.status); };
+	
+
+			function changeTopBorder() {
+				if (yy != 0){
+				if (currentCell.style.borderTop == 'solid'
+					) {currentCell.style.borderTop ='none';
+					topCell.style.borderBottom = 'none'}
+				else {currentCell.style.borderTop ='solid';
+					topCell.style.borderBottom = 'solid';}	
+				}
+			}
+
+			function changeLefBorder() {
+				if (xx !=0) {
+				if (currentCell.style.borderLeft == 'solid'
+				)	{currentCell.style.borderLeft = 'none';
+					leftCell.style.borderRight = 'none'}
+				else {currentCell.style.borderLeft = 'solid';
+					leftCell.style.borderRight = 'solid'}	
+				}	
+			}
+
+			function changeRightBorder() {
+				if (xx != langeliuSk-1) {
+				if (currentCell.style.borderRight == 'solid'
+				)	{currentCell.style.borderRight ='none';
+					rightCell.style.borderLeft = 'none'}
+				else {currentCell.style.borderRight ='solid';
+					rightCell.style.borderLeft = 'solid'}	
+				}
+			}
+
+			function changeBottomBorder() {
+				if (yy != langeliuSk-1) {
+				if (currentCell.style.borderBottom == 'solid'
+				)	{currentCell.style.borderBottom ='none';
+					bottomCell.style.borderTop = 'none'}
+				else {currentCell.style.borderBottom ='solid';
+					bottomCell.style.borderTop = 'solid'}	
+				}
+				
+			}
+
+
+			function removeTopBorder() {
+				if (yy != 0){currentCell.style.borderTop ='none';
+								topCell.style.borderBottom = 'none'}
+				}
+			
+			function removeLeftBorder() {
+				if (xx !=0) {currentCell.style.borderLeft = 'none';
+								leftCell.style.borderRight = 'none'}	
+				}	
+			
+			function removeRightBorder() {
+				if (xx != langeliuSk-1) {
+					currentCell.style.borderRight ='none';
+					rightCell.style.borderLeft = 'none'}	
+				}
+
+			function removeBottomBorder() {
+				if (yy != langeliuSk-1) {
+					currentCell.style.borderBottom ='none';
+					bottomCell.style.borderTop = 'none'}
+				}
+				
+		// atsitiktine kryptis 1-aukštyn, 2-dešinėn, 3-žemyn, 4-kairėn
+			function randDirection () {
+				r = Math.floor (Math.random() * 4) + 1;
+			}
+
+
+			for (var i = 0; i < 9000; i++) { //pakeisti į normalią sąlygą//
+
+				randDirection();
+				
+				if (r == 1) {
+					if (topCell.status != 'visited') { 
+					removeTopBorder(); toTop (); nextCell()
+					} 
+					else {toTop (); nextCell()}
+				 }
+
+			    else if (r == 2) {
+			    	if (rightCell.status != 'visited') {
+			    	removeRightBorder(); toRight(); nextCell()
+			    	}
+			    	else {toRight (); nextCell()} 
+			    }
+
+			    else if (r == 3) {
+			    	if (bottomCell.status != 'visited') {
+			    	removeBottomBorder(); toBottom(); nextCell()
+			    	}
+			    	else {toBottom (); nextCell()}
+			    }
+			    	
+			    else if (r == 4) {
+			    	if (leftCell.status != 'visited') {
+			    	removeLeftBorder(); toLeft(); nextCell()
+			    	}
+			    	else {toLeft (); nextCell()}
+			    };
+
+			    // console.log (xx yy xy);
+			   };
+			
+			currentCell.className='lightgray';
+			xx=0;yy=0;xy=0; currentCell = cells [0];
+
+			
+			// STARTAS//
+			nextCell();
+			currentCell.style.borderTop ='none';
+			currentCell.style.borderLeft ='none';
+			currentCell.className = 'red';
+
+			// if ((xx==19) && (yy==19)) {
+			// 	document.write("<p class='pabaiga'> Wow !</p>");
+			// 	console.log ('pabaiga!')
+			// }
+
+		</script>
+	
+
+	</body>
+</html>
+
