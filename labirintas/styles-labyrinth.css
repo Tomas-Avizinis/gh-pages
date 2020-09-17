@@ -1,0 +1,116 @@
+
+* {box-sizing: border-box; margin: 0px; }
+body{
+	background-color: #1E2B45;
+
+}
+h1 {
+	text-align: center;
+	color: #F1A845;
+	background-color:  #40578F;
+}
+
+p {width: 21px; height: 21px;
+	border-top: solid; 
+	border-right: solid;
+	border-bottom: solid;
+	border-left: solid;
+	border-width: 1px;
+	/*background-color: #eeeeee;*/
+	text-align: center;
+	margin: -1px ;
+	float: left; 
+	 
+	}
+
+
+p:hover {
+	background-color: #ff7777;
+}	
+
+p.pabaiga {
+	width: 50px; 
+	height: 50px;
+	position: fixed;
+	top: 150px;
+	left: 150px;
+}
+
+	.row {
+		clear: both;
+
+			}
+
+	.mygtukai  {
+		float: left; 
+		/*width: 200px; */
+		height: 620px;
+		margin-bottom: 50px; 
+		background-color: #ffff30;
+		display: inline-block;
+  		align-content: center;
+  		border-radius: 10px;
+		margin:10px; 
+		padding: 5px; 
+		/*border: 2px solid red;*/
+	}
+
+	.rodykles {
+		margin: 20px auto;
+		width: 120px;
+		height: 120px;
+		border-radius: 50%;
+		display: block;
+		background-color: #ffff80;
+	
+	}
+		
+
+	}
+	#nextCell {margin-top: 30px;}
+
+	#toTop {position: relative; top: 7px; left:30px;}
+	#toBottom {position: relative; top: 72px; left: -24px;}
+	#toLeft {position: relative; top: 0px; left: -2px;}
+	#toRight {position: relative; top: 0px; left:8px;}
+
+
+	button {margin: 5px 30px; width: 120px;}
+	button.direction{
+		margin: 5px 5px 5px 15px;
+		padding: 5px; 
+		width: 30px; height: 30px;
+		background-color: #ff0000;
+		color: #ffffff;}
+
+	.frame { 
+		margin:10px; 
+		padding: 20px; 
+		border: 2px solid red;
+		clear: both;
+		width: 620px;
+		height: 620px;
+		overflow: auto;
+		float: left;
+		background-color: #ffffff;
+		align-content: center;
+		display: inline-block;
+	}
+
+	.zaidimoLaukas {
+		margin: 10px ;
+		
+	}
+		/*.red {background-color: #ff7777;
+			border-radius: 5px;}*/
+
+		.red {
+			background-image: url("pics/man.gif");
+			background-position: center;
+			/*background-color: #22ffaa;*/
+		}	
+		.lightgray {
+			border-color: #ff0000;
+			/*background-color: #eeeeee;*/
+		}
+	
