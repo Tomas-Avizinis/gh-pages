@@ -72,24 +72,28 @@
 			    e = e || window.event;
 			    if (e.keyCode == '38') {
 			    	if (currentCell.style.borderTop == 'none') {
-			    	toTop (); nextCell()
+			    		currentCell.className="tuscias";
+			    		toTop (); nextCell()
 			    	}
 			    }
 
 			    else if (e.keyCode == '40') {
 			    	if (currentCell.style.borderBottom == 'none') {
-			    	toBottom(); nextCell()
+			    		currentCell.className="tuscias";
+			    		toBottom(); nextCell()
 			    	}
 			    }
 
 			    else if (e.keyCode == '37') {
 			    	if (currentCell.style.borderLeft == 'none') {
-			    	toLeft(); nextCell()
+			    		currentCell.className="tuscias";
+			    		toLeft(); nextCell()
 			    	}
 			    }
 			    else if (e.keyCode == '39') {
 			    	if (currentCell.style.borderRight == 'none') {
-			    	toRight(); nextCell()
+			    		currentCell.className="tuscias";
+			    		toRight(); nextCell()
 			    	}
 			    }
 			 }
@@ -120,7 +124,7 @@
 			
 	
 			function nextCell () {
-				currentCell.className = 'lightgray';
+				currentCell.className = 'tuscias';
 				xy = yy * langeliuSk + xx;
 				currentCell = cells [xy];
 				currentCell.status = 'visited';
@@ -144,7 +148,7 @@
 				xx--}; console.log(xx,yy,yy * langeliuSk + xx, currentCell.status); };
 				
 			function toRight () { if (xx < langeliuSk-1) {
-				xx=xx+1}; console.log(xx,yy,yy * langeliuSk + xx, currentCell.status); };
+				xx++}; console.log(xx,yy,yy * langeliuSk + xx, currentCell.status); };
 	
 
 			function changeTopBorder() {
@@ -249,7 +253,7 @@
 			    	else {toLeft (); nextCell()}
 			    };
 			   };
-			   currentCell.className='lightgray';
+			   currentCell.className='tuscias';
 			} //kelio sudarymas end//
 
 			function kelioRadimas() {
@@ -281,7 +285,7 @@
 				for (var i = 1; i < langeliuSk*langeliuSk-1; i++) {
 					currentCell =cells [i];
 					if (currentCell.className!="keliautojas") {
-						currentCell.className="lightgray"
+						currentCell.className="tuscias"
 					} ;
 				}
 			};
