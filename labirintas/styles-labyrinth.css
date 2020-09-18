@@ -10,7 +10,7 @@ h1 {
 	background-color:  #40578F;
 }
 
-p {width: 21px; height: 21px;
+p {width: 25px; height: 25px;
 	border-top: solid; 
 	border-right: solid;
 	border-bottom: solid;
@@ -55,6 +55,10 @@ p.pabaiga {
 		/*border: 2px solid red;*/
 	}
 
+	div.remeliuMygtukai button{
+		 visibility: hidden;
+	}
+
 	.rodykles {
 		margin: 20px auto;
 		width: 120px;
@@ -75,13 +79,21 @@ p.pabaiga {
 	#toRight {position: relative; top: 0px; left:8px;}
 
 
-	button {margin: 5px 30px; width: 120px;}
-	button.direction{
+	button {margin: 5px 30px; width: 120px; box-shadow: 1px 1px 5px;}
+	button.direction {
 		margin: 5px 5px 5px 15px;
 		padding: 5px; 
 		width: 30px; height: 30px;
 		background-color: #ff0000;
 		color: #ffffff;}
+
+	button.kelias {
+		width: 120px;
+		height: 100px;
+		border-radius: 10px;
+		text-align: center;
+		box-shadow: 1px 1px 5px;
+	}
 
 	.frame { 
 		margin:10px; 
@@ -104,13 +116,18 @@ p.pabaiga {
 		/*.red {background-color: #ff7777;
 			border-radius: 5px;}*/
 
-		.red {
+		.keliautojas {
 			background-image: url("pics/man.gif");
 			background-position: center;
+			background-repeat: no-repeat;
+
 			/*background-color: #22ffaa;*/
 		}	
 		.lightgray {
 			border-color: #ff0000;
 			/*background-color: #eeeeee;*/
+		}
+		.deadEnd {
+			background-color: #E3E3CD;
 		}
 	

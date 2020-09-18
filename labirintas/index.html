@@ -21,7 +21,7 @@
 			<div class="frame">
 			
 			<script >
-				 var langeliuSk=30;
+				 var langeliuSk=25;
 				 for (var j = 0; j <langeliuSk; j++) {
 				 	document.write ("<div class='row'>");
 					for (var i = 0; i < langeliuSk; i++) {document.write("<p class='cell'></p>");}
@@ -34,21 +34,24 @@
 		
 
 		<div class="mygtukai">
-
-			<button onclick="changeTopBorder()">Viršutinis rėmelis</button><br>
-			<button onclick="changeLefBorder()">Kairysis rėmelis</button><br>
-			<button onclick="changeBottomBorder()">apatinis rėmelis</button><br>
-			<button onclick="changeRightBorder()">dešinysis rėmelis</button><br>
-			
+			<div class="remeliuMygtukai">
+				<button onclick="changeTopBorder()">Viršutinis rėmelis</button><br>
+				<button onclick="changeLefBorder()">Kairysis rėmelis</button><br>
+				<button onclick="changeBottomBorder()">apatinis rėmelis</button><br>
+				<button onclick="changeRightBorder()">dešinysis rėmelis</button><br>
+			</div>
 		
 
 			<div class="rodykles">
-			<button class="direction" id="toTop" onclick="toTop(); nextCell();" > ▲ </button>
-			<button class="direction" id="toBottom" onclick="toBottom();nextCell();"> ▼ </button>
-			<br>
-			<button class="direction" id="toLeft" onclick="toLeft(); nextCell();"> ◄ </button>
-			<button class="direction" id="toRight" onclick="toRight(); nextCell();"> ► </button>
-		</div> <!-- mygtukai end -->
+				<button class="direction" id="toTop" onclick="toTop(); nextCell();" > ▲ </button>
+				<button class="direction" id="toBottom" onclick="toBottom();nextCell();"> ▼ </button>
+				<br>
+				<button class="direction" id="toLeft" onclick="toLeft(); nextCell();"> ◄ </button>
+				<button class="direction" id="toRight" onclick="toRight(); nextCell();"> ► </button>
+			</div> <!-- rodykles end -->
+
+		<button class="kelias" onclick="kelioRadimas()"> Surasti kelią</button><br/>
+		<button class="kelias" onclick="kelioSlepimas()"> Paslėpti kelią</button>
 				
 						
 		</div> <!-- zaidimoLaukas end -->
@@ -91,10 +94,10 @@
 			    }
 			 }
 
-			 var 
+			 var kxx, kyy;
 				xx=1; 
 				yy=1; 
-				langeliuSk=30;
+				langeliuSk=25;
 				xy = yy * langeliuSk + xx;
 			var r;
 
@@ -113,7 +116,7 @@
 			var rightCell = cells [xy + 1];
 			var leftCell = cells [xy-1];
 			var topCell = cells [xy-langeliuSk];
-			currentCell.className = 'red';
+			currentCell.className = 'keliautojas';
 			
 	
 			function nextCell () {
@@ -121,16 +124,13 @@
 				xy = yy * langeliuSk + xx;
 				currentCell = cells [xy];
 				currentCell.status = 'visited';
-				currentCell.className = 'red';
+				currentCell.className = 'keliautojas';
 				//  jei ne krastines eilutes nustatome salia esanciu langeliu numeri 
 				if (xx !=0) {leftCell = cells [xy - 1];} 
 				if (xx != langeliuSk-1) {rightCell = cells [xy + 1];} 
 				if (yy != 0){topCell = cells [xy-langeliuSk];}
 				if (yy != langeliuSk-1) {bottomCell = cells [xy + langeliuSk];} 
-				// if ((xx ==19) && (yy==19)) {
-				// 		document.write("<p class='pabaiga'> Wow !</p>");
-				// console.log ('pabaiga!')
-				// }
+			
 			}
 
 
@@ -216,53 +216,90 @@
 				r = Math.floor (Math.random() * 4) + 1;
 			}
 
-
-			for (var i = 0; i < 9000; i++) { //pakeisti į normalią sąlygą//
-
+			function kelioSudarymas () {
+				var i = 0;
+			while ( i < langeliuSk*langeliuSk) {
 				randDirection();
 				
 				if (r == 1) {
 					if (topCell.status != 'visited') { 
-					removeTopBorder(); toTop (); nextCell()
+					removeTopBorder(); toTop (); nextCell();  i++;
 					} 
 					else {toTop (); nextCell()}
 				 }
 
 			    else if (r == 2) {
 			    	if (rightCell.status != 'visited') {
-			    	removeRightBorder(); toRight(); nextCell()
+			    	removeRightBorder(); toRight(); nextCell();  i++;
 			    	}
 			    	else {toRight (); nextCell()} 
 			    }
 
 			    else if (r == 3) {
 			    	if (bottomCell.status != 'visited') {
-			    	removeBottomBorder(); toBottom(); nextCell()
+			    	removeBottomBorder(); toBottom(); nextCell();  i++
 			    	}
 			    	else {toBottom (); nextCell()}
 			    }
 			    	
 			    else if (r == 4) {
 			    	if (leftCell.status != 'visited') {
-			    	removeLeftBorder(); toLeft(); nextCell()
+			    	removeLeftBorder(); toLeft(); nextCell();  i++
 			    	}
 			    	else {toLeft (); nextCell()}
 			    };
-
-			    // console.log (xx yy xy);
 			   };
-			
-			currentCell.className='lightgray';
-			xx=0;yy=0;xy=0; currentCell = cells [0];
+			   currentCell.className='lightgray';
+			} //kelio sudarymas end//
 
+			function kelioRadimas() {
+
+				for (var j = 0; j < 90; j++) {
+					for (var i = 1; i < langeliuSk*langeliuSk-1; i++) {
+					currentCell =cells [i];
+					
+					if (currentCell.className != "deadEnd") {
+					var sienuSk=0;
+					if (currentCell.style.borderTop =="solid") {sienuSk++}
+						else if (cells [i-langeliuSk].className=="deadEnd") {sienuSk++};
+					if (currentCell.style.borderRight =="solid") {sienuSk++}
+						else if (cells [i + 1].className=="deadEnd") {sienuSk++};
+					if (currentCell.style.borderBottom =="solid") {sienuSk++}
+						else if (cells [i+langeliuSk].className=="deadEnd") {sienuSk++};
+					if (currentCell.style.borderLeft =="solid") {sienuSk++}
+						else if (cells [i - 1].className=="deadEnd") {sienuSk++};
+
+					if (sienuSk ==3) {currentCell.className="deadEnd"};	
+					}
+				}	
+				}
+
+			}; //kelio radimas end//
 			
+			function kelioSlepimas () {
+				
+				for (var i = 1; i < langeliuSk*langeliuSk-1; i++) {
+					currentCell =cells [i];
+					if (currentCell.className!="keliautojas") {
+						currentCell.className="lightgray"
+					} ;
+				}
+			};
+						
 			// STARTAS//
-			nextCell();
+			kelioSudarymas();
+			
+			
+			xx=0;yy=0;xy=0; 
+			currentCell = cells [0];
+			currentCell.className = 'keliautojas';
+			nextCell();			
 			currentCell.style.borderTop ='none';
 			currentCell.style.borderLeft ='none';
-			currentCell.className = 'red';
 
-			// if ((xx==19) && (yy==19)) {
+			currentCell.className = 'keliautojas';
+
+			// if (xy = langeliuSk*langeliuSk) {
 			// 	document.write("<p class='pabaiga'> Wow !</p>");
 			// 	console.log ('pabaiga!')
 			// }
