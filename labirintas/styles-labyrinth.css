@@ -55,6 +55,9 @@ p.pabaiga {
 		/*border: 2px solid red;*/
 	}
 
+	@media (max-width: 700;) {.mygtukai {width: 300px;height: 150px; display: flex;}	}
+	@media (min-width: 701;) {.mygtukai {height: 620px;}	}
+
 	div.remeliuMygtukai button{
 		 visibility: hidden;
 	}
@@ -109,7 +112,7 @@ p.pabaiga {
 		display: inline-block;
 	}
 
-	@media (max-width: 700;) {.frame {width: 400px;height: 400px;}	}
+	@media (max-width: 700;) {.frame {width: 300px;height: 300px;}	}
 	@media (min-width: 701;) {.frame {width: 620px;height: 620px;}	}
 
 	.zaidimoLaukas {
