@@ -100,14 +100,17 @@ p.pabaiga {
 		padding: 20px; 
 		border: 2px solid red;
 		clear: both;
-		width: 620px;
-		height: 620px;
+		/*width: 620px;
+		height: 620px;*/
 		overflow: auto;
 		float: left;
 		background-color: #ffffff;
 		align-content: center;
 		display: inline-block;
 	}
+
+	@media (max-width: 700;) {.frame {width: 400px;height: 400px;}	}
+	@media (min-width: 701;) {.frame {width: 620px;height: 620px;}	}
 
 	.zaidimoLaukas {
 		margin: 10px ;

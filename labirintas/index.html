@@ -21,7 +21,13 @@
 			<div class="frame">
 			
 			<script >
-				 var langeliuSk=25;
+
+				if (window.matchMedia("(max-width: 700px)").matches) {
+  					var langeliuSk=16; /* ekranas maziau 700 pix */
+				} else {
+  					var langeliuSk=25;/* ekranas daugiau 700 pix */
+				}
+				 
 				 for (var j = 0; j <langeliuSk; j++) {
 				 	document.write ("<div class='row'>");
 					for (var i = 0; i < langeliuSk; i++) {document.write("<p class='cell'></p>");}
@@ -101,7 +107,12 @@
 			 var kxx, kyy;
 				xx=1; 
 				yy=1; 
-				langeliuSk=25;
+				
+				if (window.matchMedia("(max-width: 700px)").matches) {
+  					var langeliuSk=16; /* ekranas maziau 700 pix */
+				} else {
+  					var langeliuSk=25;/* ekranas daugiau 700 pix */
+				}
 				xy = yy * langeliuSk + xx;
 			var r;
 
@@ -257,8 +268,10 @@
 			} //kelio sudarymas end//
 
 			function kelioRadimas() {
-
-				for (var j = 0; j < 90; j++) {
+				var k; //naujų deadend skaičius, per vieną patikrinimą
+				var count=0;
+				while (k!=0) {
+					k=0; count++;
 					for (var i = 1; i < langeliuSk*langeliuSk-1; i++) {
 					currentCell =cells [i];
 					
@@ -273,9 +286,10 @@
 					if (currentCell.style.borderLeft =="solid") {sienuSk++}
 						else if (cells [i - 1].className=="deadEnd") {sienuSk++};
 
-					if (sienuSk ==3) {currentCell.className="deadEnd"};	
+					if (sienuSk ==3) {currentCell.className="deadEnd", k++};	
 					}
-				}	
+				} 	
+				console.log ('aklavietės ilgis', count);
 				}
 
 			}; //kelio radimas end//
