@@ -23,7 +23,7 @@
 			<script >
 
 				if (window.matchMedia("(max-width: 700px)").matches) {
-  					var langeliuSk=12; /* ekranas maziau 700 pix */
+  					var langeliuSk=16; /* ekranas maziau 700 pix */
 				} else {
   					var langeliuSk=25;/* ekranas daugiau 700 pix */
 				}
@@ -49,15 +49,17 @@
 		
 
 			<div class="rodykles">
-				<button class="direction" id="toTop" onclick="toTop(); nextCell();" > ▲ </button>
-				<button class="direction" id="toBottom" onclick="toBottom();nextCell();"> ▼ </button>
+				<button class="direction" id="toTop" onclick="walkTop(); nextCell();" > ▲ </button>
+				<button class="direction" id="toBottom" onclick="walkBottom();nextCell();"> ▼ </button>
 				<br>
-				<button class="direction" id="toLeft" onclick="toLeft(); nextCell();"> ◄ </button>
-				<button class="direction" id="toRight" onclick="toRight(); nextCell();"> ► </button>
+				<button class="direction" id="toLeft" onclick="walkLeft(); nextCell();"> ◄ </button>
+				<button class="direction" id="toRight" onclick="walkRight(); nextCell();"> ► </button>
 			</div> <!-- rodykles end -->
 
-		<button class="kelias" onclick="kelioRadimas()"> Surasti kelią</button><br/>
-		<button class="kelias" onclick="kelioSlepimas()"> Paslėpti kelią</button>
+		<button class="kelias" onclick="kelioRadimas()"> Parodyti <br> kelią</button>
+		<button class="kelias" onclick="kelioRadimasDemo()"> Kelio radimas DEMO </button>
+		<button class="kelias" onclick="kelioSlepimas()"> Paslėpti <br>kelią</button>
+		<div id="sveikinimas"> Čia bus sveikinimas</div>
 				
 						
 		</div> <!-- zaidimoLaukas end -->
@@ -76,40 +78,18 @@
 				document.onkeydown = checkKey;
 				function checkKey(e) {
 			    e = e || window.event;
-			    if (e.keyCode == '38') {
-			    	if (currentCell.style.borderTop == 'none') {
-			    		currentCell.className="tuscias";
-			    		toTop (); nextCell()
-			    	}
+			    if (e.keyCode == '38') {walkTop (); nextCell()}
+			    else if (e.keyCode == '40') {walkBottom(); nextCell()}
+			    else if (e.keyCode == '37') {walkLeft(); nextCell()}
+			    else if (e.keyCode == '39') {walkRight(); nextCell()}
 			    }
-
-			    else if (e.keyCode == '40') {
-			    	if (currentCell.style.borderBottom == 'none') {
-			    		currentCell.className="tuscias";
-			    		toBottom(); nextCell()
-			    	}
-			    }
-
-			    else if (e.keyCode == '37') {
-			    	if (currentCell.style.borderLeft == 'none') {
-			    		currentCell.className="tuscias";
-			    		toLeft(); nextCell()
-			    	}
-			    }
-			    else if (e.keyCode == '39') {
-			    	if (currentCell.style.borderRight == 'none') {
-			    		currentCell.className="tuscias";
-			    		toRight(); nextCell()
-			    	}
-			    }
-			 }
 
 			 var kxx, kyy;
 				xx=1; 
 				yy=1; 
 				
 				if (window.matchMedia("(max-width: 700px)").matches) {
-  					var langeliuSk=12; /* ekranas maziau 700 pix */
+  					var langeliuSk=16; /* ekranas maziau 700 pix */
 				} else {
   					var langeliuSk=25;/* ekranas daugiau 700 pix */
 				}
@@ -144,22 +124,31 @@
 				if (xx !=0) {leftCell = cells [xy - 1];} 
 				if (xx != langeliuSk-1) {rightCell = cells [xy + 1];} 
 				if (yy != 0){topCell = cells [xy-langeliuSk];}
-				if (yy != langeliuSk-1) {bottomCell = cells [xy + langeliuSk];} 
+				if (yy != langeliuSk-1) {bottomCell = cells [xy + langeliuSk];}
+
+
 			
 			}
 
+			// flyKryptis  eina kiaurai sienas
+			function flyTop () { if (yy > 0) {yy--};  };
+			function flyBottom () { if (yy < langeliuSk-1) {yy++}; };
+			function flyLeft () { if (xx > 0) {xx--}; };
+			function flyRight () { if (xx < langeliuSk-1) {xx++}; };
 
-			function toTop () { if (yy > 0) {
-				yy--}; console.log(xx,yy,yy * langeliuSk + xx,  currentCell.status); };
-
-			function toBottom () { if (yy < langeliuSk-1) {
-				yy++}; console.log(xx,yy,yy * langeliuSk + xx, currentCell.status); };
-
-			function toLeft () { if (xx > 0) {
-				xx--}; console.log(xx,yy,yy * langeliuSk + xx, currentCell.status); };
-				
-			function toRight () { if (xx < langeliuSk-1) {
-				xx++}; console.log(xx,yy,yy * langeliuSk + xx, currentCell.status); };
+			// walkKryptis  eina tik kai sienų nera
+			function walkTop () { 
+				if (yy > 0 && currentCell.style.borderTop == 'none') {yy--;};  
+			};
+			function walkBottom () { 
+				if (yy < langeliuSk-1 && currentCell.style.borderBottom == 'none') {yy++}; 
+			};
+			function walkLeft () { 
+				if (xx > 0 && currentCell.style.borderLeft == 'none') {xx--}; 
+			};
+			function walkRight () {
+			 if (xx < langeliuSk-1 && currentCell.style.borderRight == 'none') {xx++}; 
+			};
 	
 
 			function changeTopBorder() {
@@ -238,33 +227,40 @@
 				
 				if (r == 1) {
 					if (topCell.status != 'visited') { 
-					removeTopBorder(); toTop (); nextCell();  i++;
-					} 
-					else {toTop (); nextCell()}
+					removeTopBorder(); flyTop (); nextCell();  i++;} 
+					else {flyTop (); nextCell()}
 				 }
 
 			    else if (r == 2) {
 			    	if (rightCell.status != 'visited') {
-			    	removeRightBorder(); toRight(); nextCell();  i++;
-			    	}
-			    	else {toRight (); nextCell()} 
+			    	removeRightBorder(); flyRight(); nextCell();  i++;}
+			    	else {flyRight (); nextCell()} 
 			    }
 
 			    else if (r == 3) {
 			    	if (bottomCell.status != 'visited') {
-			    	removeBottomBorder(); toBottom(); nextCell();  i++
-			    	}
-			    	else {toBottom (); nextCell()}
+			    	removeBottomBorder(); flyBottom(); nextCell();  i++}
+			    	else {flyBottom (); nextCell()}
 			    }
 			    	
 			    else if (r == 4) {
 			    	if (leftCell.status != 'visited') {
-			    	removeLeftBorder(); toLeft(); nextCell();  i++
+			    	removeLeftBorder(); flyLeft(); nextCell();  i++
 			    	}
-			    	else {toLeft (); nextCell()}
+			    	else {flyLeft (); nextCell()}
 			    };
 			   };
 			   currentCell.className='tuscias';
+
+			//iejimo langelis   
+			currentCell = cells [0];		
+			currentCell.style.borderTop ='none';
+			currentCell.style.borderLeft ='none';
+
+			//isejimo langelis
+			currentCell =cells [langeliuSk*langeliuSk-1]; 
+			currentCell.style.borderBottom ='none';
+			currentCell.style.borderRight ='none';
 			} //kelio sudarymas end//
 
 			function kelioRadimas() {
@@ -289,20 +285,62 @@
 					if (sienuSk ==3) {currentCell.className="deadEnd", k++};	
 					}
 				} 	
+				}
 				console.log ('aklavietės ilgis', count);
+			}; //kelio radimas end//
+
+
+			function kelioRadimasDemo() {
+					var k; //naujų deadend skaičius, per vieną patikrinimą	
+					for (var i = 1; i < langeliuSk*langeliuSk-1; i++) {
+					currentCell = cells [i];
+					k=0;
+					if (currentCell.className != "deadEnd") {
+					var sienuSk=0;
+					if (currentCell.style.borderTop =="solid") {sienuSk++}
+						else if (cells [i-langeliuSk].className=="deadEnd") {sienuSk++};
+					if (currentCell.style.borderRight =="solid") {sienuSk++}
+						else if (cells [i + 1].className=="deadEnd") {sienuSk++};
+					if (currentCell.style.borderBottom =="solid") {sienuSk++}
+						else if (cells [i+langeliuSk].className=="deadEnd") {sienuSk++};
+					if (currentCell.style.borderLeft =="solid") {sienuSk++}
+						else if (cells [i - 1].className=="deadEnd") {sienuSk++};
+
+					if (sienuSk ==3) {currentCell.className="deadEnd", k++};	
+					}
+
+				if (currentCell == cells [623]) {
+					console.log ("top-", currentCell.style.borderTop);
+					console.log ("bottom-", currentCell.style.borderBottom);
+					console.log ("left-", currentCell.style.borderLeft);
+					console.log ("right-", currentCell.style.borderRight);
+					console.log ("sienu ", sienuSk, currentCell.className);
 				}
 
-			}; //kelio radimas end//
+				} 
 			
+			}; //kelioRadimasDemo end//
+			
+
+
 			function kelioSlepimas () {
-				
 				for (var i = 1; i < langeliuSk*langeliuSk-1; i++) {
 					currentCell =cells [i];
 					if (currentCell.className!="keliautojas") {
 						currentCell.className="tuscias"
 					} ;
 				}
+				nextCell();
 			};
+
+
+			function pabaiga() {
+				if ((xy==624) && (currentCell.className =='keliautojas')) {
+				var sveikinmas=document.getElementById("sveikinimas");
+          	sveikinimas.innerHTML = "Šaunuolis, jei nori pakartoti, įkrauk puslapį iš naujo";
+				}	
+			}			
+
 						
 			// STARTAS//
 			kelioSudarymas();
@@ -311,16 +349,17 @@
 			xx=0;yy=0;xy=0; 
 			currentCell = cells [0];
 			currentCell.className = 'keliautojas';
-			nextCell();			
-			currentCell.style.borderTop ='none';
-			currentCell.style.borderLeft ='none';
+			nextCell();
+			pabaiga();
 
-			currentCell.className = 'keliautojas';
 
-			// if (xy = langeliuSk*langeliuSk) {
-			// 	document.write("<p class='pabaiga'> Wow !</p>");
-			// 	console.log ('pabaiga!')
-			// }
+
+
+
+			// if (xy = langeliuSk*langeliuSk-1) sveikinimas(); 
+
+
+
 
 		</script>
 	
