@@ -119,14 +119,14 @@ p.pabaiga {
 		display: inline-block;
 	}
 
-	@media (max-width: 700) {div.frame {width: 400px;height: 400px;}	}
-	@media (min-width: 701) {div.frame {width: 620px;height: 620px;}	}
+	@media (max-width: 700;) {div.frame {width: 400px;height: 400px;}	}
+	@media (min-width: 701;) {div.frame {width: 620px;height: 620px;}	}
 
-	@media (max-width: 700) {div.mygtukai {width: 400px; height: 200px;}	}
-	@media (min-width: 701) {div.mygtukai {width: 200px; height: 620px;}	}
+	@media (max-width: 700;) {div.mygtukai {width: 400px; height: 200px;}	}
+	@media (min-width: 701;) {div.mygtukai {width: 200px; height: 620px;}	}
 
-	@media (max-width: 700) {p.pabaiga {width: 160px; height: 160px;}	}
-	@media (min-width: 701) {p.pabaiga {width: 320px; height: 320px;}	}
+	@media (max-width: 700;) {p.pabaiga {width: 160px; height: 160px;}	}
+	@media (min-width: 701;) {p.pabaiga {width: 320px; height: 320px;}	}
 
 	.zaidimoLaukas {
 		margin: 10px ;
