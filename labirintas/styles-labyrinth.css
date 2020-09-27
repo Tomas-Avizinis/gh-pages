@@ -10,7 +10,7 @@ h1 {
 	background-color:  #40578F;
 }
 
-p {width: 25px; height: 25px;
+p {
 	border-top: solid; 
 	border-right: solid;
 	border-bottom: solid;
@@ -128,7 +128,9 @@ p.pabaiga {
 	@media (max-width: 700;) {p.pabaiga {width: 160px; height: 160px;}	}
 	@media (min-width: 701;) {p.pabaiga {width: 320px; height: 320px;}	}
 
-	@media (max-width: 700;) {p {width: 20px;height: 20px;}	}
+	@media (max-width: 700;) {p {width: 16px;height: 16px;}	}
+	@media (max-width: 700;) {p {width: 25px;height: 25px;}	}
+
 
 
 	.zaidimoLaukas {
