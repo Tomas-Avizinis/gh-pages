@@ -10,7 +10,7 @@ h1 {
 	background-color:  #40578F;
 }
 
-p {	width: 25px; height: 25px;
+p {width: 25px; height: 25px;
 	border-top: solid; 
 	border-right: solid;
 	border-bottom: solid;
@@ -70,7 +70,7 @@ p.pabaiga {
 	}
 
 	.rodykles {
-		margin: 20px auto;
+		margin: 10px auto;
 		width: 120px;
 		height: 120px;
 		border-radius: 50%;
@@ -83,17 +83,17 @@ p.pabaiga {
 	}
 	#nextCell {margin-top: 30px;}
 
-	#toTop {position: relative; top: 7px; left:30px;}
-	#toBottom {position: relative; top: 72px; left: -24px;}
-	#toLeft {position: relative; top: 0px; left: -2px;}
-	#toRight {position: relative; top: 0px; left:8px;}
+	#toTop {position: relative; top: 5px; left:22px;}
+	#toBottom {position: relative; top: 40px; left: 22px;}
+	#toLeft {position: relative; top: -60px; left: -23px;}
+	#toRight {position: relative; top: -115px; left:67px;}
 
 
 	button {margin: 5px 30px; width: 120px; box-shadow: 1px 1px 5px;}
 	button.direction {
 		margin: 5px 5px 5px 15px;
 		padding: 5px; 
-		width: 30px; height: 30px;
+		width: 45px; height: 45px;
 		background-color: #ff0000;
 		color: #ffffff;}
 
@@ -107,7 +107,7 @@ p.pabaiga {
 
 	.frame { 
 		margin:10px; 
-		padding: 20px; 
+		padding: 10px; 
 		border: 2px solid red;
 		clear: both;
 		/*width: 620px;
@@ -119,18 +119,13 @@ p.pabaiga {
 		display: inline-block;
 	}
 
-	@media (max-width: 700;) {div.frame {width: 400px;height: 400px;}	}
-	@media (min-width: 701;) {div.frame {width: 620px;height: 620px;}	}
+	@media (max-width: 700px) {div.frame {width: 400px;height: 400px;}	}
+	@media (min-width: 701px) {div.frame {width: 620px;height: 620px;}	}
 
-	@media (max-width: 700;) {div.mygtukai {width: 400px; height: 200px;}	}
-	@media (min-width: 701;) {div.mygtukai {width: 200px; height: 620px;}	}
+	@media (max-width: 700px) {div.mygtukai {width: 400px; height: 200px;}	}
+	@media (min-width: 701px) {div.mygtukai {width: 200px; height: 620px;}	}
 
-	@media (max-width: 700;) {p.pabaiga {width: 160px; height: 160px;}	}
-	@media (min-width: 701;) {p.pabaiga {width: 320px; height: 320px;}	}
-
-
-
-
+	@media (max-width: 700px) {div.rodykles {float: left;}	}
 
 	.zaidimoLaukas {
 		margin: 10px ;
@@ -143,9 +138,15 @@ p.pabaiga {
 			background-image: url("pics/man.gif");
 			background-position: center;
 			background-repeat: no-repeat;
-
-			/*background-color: #22ffaa;*/
 		}	
+
+		.keliautojasDeadEnd {
+			background-image: url("pics/man.gif");
+			background-position: center;
+			background-repeat: no-repeat;
+			background-color: #DED1C2;
+		}	
+
 		.tuscias {
 			border-color: #ff0000;
 			/*background-color: #eeeeee;*/
