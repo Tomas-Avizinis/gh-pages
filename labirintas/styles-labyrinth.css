@@ -121,10 +121,10 @@ p.pabaiga {
 		display: inline-block;
 	}
 
-	@media (max-width: 700px) {div.frame {width: 340px;height: 340px;}	}
+	@media (max-width: 700px) {div.frame {width: 330px;height: 330px;}	}
 	@media (min-width: 701px) {div.frame {width: 620px;height: 620px;}	}
 
-	@media (max-width: 700px) {div.mygtukai {width: 340px; height: 200px;}	}
+	@media (max-width: 700px) {div.mygtukai {width: 330px; height: 200px;}	}
 	@media (min-width: 701px) {div.mygtukai {width: 200px; height: 620px;}	}
 
 	@media (max-width: 700px) {div.rodykles {float: left;}	}
