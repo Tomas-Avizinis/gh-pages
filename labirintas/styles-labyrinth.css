@@ -25,6 +25,8 @@ p {width: 25px; height: 25px;
 	 
 	}
 
+	@media (max-width: 700px) {p {width: 19px;height: 19px;}	}
+	@media (min-width: 701px) {p {width: 25px;height: 25px;}	}
 
 p:hover {
 	background-color: #ff7777;
@@ -119,10 +121,10 @@ p.pabaiga {
 		display: inline-block;
 	}
 
-	@media (max-width: 700px) {div.frame {width: 350px;height: 350px;}	}
+	@media (max-width: 700px) {div.frame {width: 340px;height: 340px;}	}
 	@media (min-width: 701px) {div.frame {width: 620px;height: 620px;}	}
 
-	@media (max-width: 700px) {div.mygtukai {width: 350px; height: 200px;}	}
+	@media (max-width: 700px) {div.mygtukai {width: 340px; height: 200px;}	}
 	@media (min-width: 701px) {div.mygtukai {width: 200px; height: 620px;}	}
 
 	@media (max-width: 700px) {div.rodykles {float: left;}	}
