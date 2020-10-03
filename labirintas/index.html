@@ -59,7 +59,7 @@
 		<button class="kelias" onclick="kelioRadimas()"> Parodyti <br> kelią</button>
 		<button class="kelias" onclick="kelioRadimasDemo()"> Kelio radimas DEMO </button>
 		<button class="kelias" onclick="kelioSlepimas()"> Paslėpti <br>kelią</button>
-		<div id="sveikinimas"> Čia bus sveikinimas</div>
+		<!-- <div id="sveikinimas"> Čia bus sveikinimas</div> -->
 				
 						
 		</div> <!-- zaidimoLaukas end -->
@@ -84,7 +84,7 @@
 			    else if (e.keyCode == '39') {walkRight(); nextCell()}
 			    }
 
-			 var kxx, kyy;
+			 var kxy;
 				xx=1; 
 				yy=1; 
 				
@@ -115,11 +115,16 @@
 			
 	
 			function nextCell () {
-				currentCell.className = 'tuscias';
+				if (currentCell.className == 'keliautojasDeadEnd') {
+					currentCell.className = 'deadEnd'}
+				else {currentCell.className = 'tuscias'};
 				xy = yy * langeliuSk + xx;
 				currentCell = cells [xy];
 				currentCell.status = 'visited';
-				currentCell.className = 'keliautojas';
+
+				if (currentCell.className == 'deadEnd') {
+					currentCell.className = 'keliautojasDeadEnd'}
+				else {currentCell.className = 'keliautojas'};
 				//  jei ne krastines eilutes nustatome salia esanciu langeliu numeri 
 				if (xx !=0) {leftCell = cells [xy - 1];} 
 				if (xx != langeliuSk-1) {rightCell = cells [xy + 1];} 
@@ -286,6 +291,10 @@
 					}
 				} 	
 				}
+				currentCell = cells [xy];
+				if (currentCell.className == 'deadEnd') {
+					currentCell.className = 'keliautojasDeadEnd'}
+				else {currentCell.className = 'keliautojas'};
 				console.log ('aklavietės ilgis', count);
 			}; //kelio radimas end//
 
@@ -295,30 +304,29 @@
 					for (var i = 1; i < langeliuSk*langeliuSk-1; i++) {
 					currentCell = cells [i];
 					k=0;
-					if (currentCell.className != "deadEnd") {
+					if (currentCell.className != "deadEnd" &&  
+							currentCell.className != "keliautojasDeadEnd") {
 					var sienuSk=0;
 					if (currentCell.style.borderTop =="solid") {sienuSk++}
-						else if (cells [i-langeliuSk].className=="deadEnd") {sienuSk++};
+						else if (cells [i-langeliuSk].className=="deadEnd" || 
+							currentCell.className == "keliautojasDeadEnd") {sienuSk++};
 					if (currentCell.style.borderRight =="solid") {sienuSk++}
-						else if (cells [i + 1].className=="deadEnd") {sienuSk++};
+						else if (cells [i + 1].className=="deadEnd" || 
+							currentCell.className == "keliautojasDeadEnd") {sienuSk++};
 					if (currentCell.style.borderBottom =="solid") {sienuSk++}
-						else if (cells [i+langeliuSk].className=="deadEnd") {sienuSk++};
+						else if (cells [i+langeliuSk].className=="deadEnd" || 
+							currentCell.className == "keliautojasDeadEnd") {sienuSk++};
 					if (currentCell.style.borderLeft =="solid") {sienuSk++}
-						else if (cells [i - 1].className=="deadEnd") {sienuSk++};
+						else if (cells [i - 1].className=="deadEnd" || 
+							currentCell.className == "keliautojasDeadEnd") {sienuSk++};
 
 					if (sienuSk ==3) {currentCell.className="deadEnd", k++};	
 					}
-
-				if (currentCell == cells [623]) {
-					console.log ("top-", currentCell.style.borderTop);
-					console.log ("bottom-", currentCell.style.borderBottom);
-					console.log ("left-", currentCell.style.borderLeft);
-					console.log ("right-", currentCell.style.borderRight);
-					console.log ("sienu ", sienuSk, currentCell.className);
-				}
-
 				} 
-			
+				currentCell = cells [xy];
+				if (currentCell.className == 'deadEnd') {
+					currentCell.className = 'keliautojasDeadEnd'}
+				else {currentCell.className = 'keliautojas'};
 			}; //kelioRadimasDemo end//
 			
 
@@ -330,7 +338,8 @@
 						currentCell.className="tuscias"
 					} ;
 				}
-				nextCell();
+				currentCell = cells [xy];
+				currentCell.className="keliautojas";
 			};
 
 
@@ -349,7 +358,7 @@
 			xx=0;yy=0;xy=0; 
 			currentCell = cells [0];
 			currentCell.className = 'keliautojas';
-			nextCell();
+			// nextCell();
 			pabaiga();
 
 
