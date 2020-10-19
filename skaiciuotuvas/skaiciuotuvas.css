@@ -20,6 +20,7 @@ hr {
 
 
 #ekranas {
+	color: #656565;
 	position: relative;
 	margin: 0px auto;
 	width: 270px;
@@ -31,7 +32,8 @@ hr {
 	padding: 5px ;
 	font-family: courier;
 	font-size: 28px;
-	background-color: 
+	transition-property: background-color;
+	transition-duration: 1s;
 
 }
 
@@ -67,13 +69,28 @@ hr {
 	width: 18%;
 	height: 40px;
 	font-size: 20px;
+	font-weight: 600;
 	background-color: #999999;
 	color: #ffffff;
-	padding: 5px;
+	padding: 2px;
 	border-radius: 5px;
 	margin: 1px;
 	text-decoration: none;
   outline: none;
+}
+
+#klaviatura .memory {
+	background-color: #656565;
+}
+
+#klaviatura .skaicius {
+	background-color: #f0f0f0;
+	color: #000000;
+}
+
+#klaviatura .on {
+	background-color: #225500;
+	color: #ffffff;
 }
 
 #klaviatura button:active {

@@ -15,7 +15,7 @@
   	 <div id="skaiciuotuvas">
   	    <div id="ekranas">
           <p id="ekr0eilute">technine informacija</p>
-          <p id="ekr1eilute">123456789</p>
+          <p id="ekr1eilute">0</p>
           <p id="ekr2eilute">abc</p>
           <hr>
           <p id="ekr3eilute">atsakymas</p>
@@ -24,39 +24,39 @@
 
         <div id="klaviatura">
           <div id="row1">
-            <button id="memoMR">MR</button>
-            <button id="memoMC">MC</button>
-            <button id="memoM+">M+</button>
-            <button id="skliaustas1">(</button>
-            <button id="skliaustas2">)</button>
+            <button id="memoMR" class="memory">MR</button>
+            <button id="memoMC" class="memory">MC</button>
+            <button id="memoM+" class="memory">M+</button>
+            <button id="empty" class="memory">#</button>
+            <button id="on"class="on" onclick="ijungti()">ON</button>
           </div>
           <div id="row2">
-            <button id="sk7" onclick="skIvedimas(this)">7</button>
-            <button id="sk8" onclick="skIvedimas(this)">8</button>
-            <button id="sk9" onclick="skIvedimas(this)">9</button>
+            <button id="sk7" class="skaicius" onclick="skIvedimas(this)">7</button>
+            <button id="sk8" class="skaicius"onclick="skIvedimas(this)">8</button>
+            <button id="sk9" class="skaicius"onclick="skIvedimas(this)">9</button>
             <button id="dalyba">÷</button>
             <button id="memoC" onclick="C()">C</button>
           </div>  
           <div id="row3">
-            <button id="sk4" onclick="skIvedimas(this)">4</button>
-            <button id="sk5" onclick="skIvedimas(this)">5</button>
-            <button id="sk6" onclick="skIvedimas(this)">6</button>
+            <button id="sk4" class="skaicius" onclick="skIvedimas(this)">4</button>
+            <button id="sk5" class="skaicius" onclick="skIvedimas(this)">5</button>
+            <button id="sk6" class="skaicius" onclick="skIvedimas(this)">6</button>
             <button id="daugyba">X</button>
             <button id="memoCE" onclick="cancelEntry()">CE</button>          
           </div>
           
           <div id="row4">
-            <button id="sk1" onclick="skIvedimas(this)">1</button>
-            <button id="sk2" onclick="skIvedimas(this)">2</button>
-            <button id="sk3" onclick="skIvedimas(this)">3</button>
+            <button id="sk1" class="skaicius" onclick="skIvedimas(this)">1</button>
+            <button id="sk2" class="skaicius" onclick="skIvedimas(this)">2</button>
+            <button id="sk3" class="skaicius" onclick="skIvedimas(this)">3</button>
             <button id="atimtis">-</button>
             <button id="saknis">√</button> 
           </div>
 
           <div id="row5">
-            <button id="keistiZenkla" onclick="keistiZenkla()">±</button>
-            <button id="sk0" onclick="skIvedimas(this)">0</button>
-            <button id="kablelis">.</button>
+            <button id="keistiZenkla" class="skaicius" onclick="keistiZenkla()">±</button>
+            <button id="sk0" class="skaicius" onclick="skIvedimas(this)">0</button>
+            <button id="kablelis" class="skaicius" onclick="kablIvedimas(this)">.</button>
             <button id="sudetis">+</button>
             <button id="lygu">=</button> 
           </div>
