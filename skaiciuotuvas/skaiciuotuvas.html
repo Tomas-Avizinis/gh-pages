@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+	<meta charset = "utf-8">
+	<title> Skaiciuotuvas </title> 
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Title</title>
+		<link rel="stylesheet" href="skaiciuotuvas.css">
+		<script src="skaiciuotuvas.js"></script>
+
+</head>
+  <body> 
+  	 <div id="skaiciuotuvas">
+  	    <div id="ekranas">
+          <p id="ekr0eilute">technine informacija</p>
+          <p id="ekr1eilute">123456789</p>
+          <p id="ekr2eilute">abc</p>
+          <hr>
+          <p id="ekr3eilute">atsakymas</p>
+          <p id="ekr4zenklas">+</p>
+        </div> <!-- ekranas end-->
+
+        <div id="klaviatura">
+          <div id="row1">
+            <button id="memoMR">MR</button>
+            <button id="memoMC">MC</button>
+            <button id="memoM+">M+</button>
+            <button id="skliaustas1">(</button>
+            <button id="skliaustas2">)</button>
+          </div>
+          <div id="row2">
+            <button id="sk7" onclick="skIvedimas(this)">7</button>
+            <button id="sk8" onclick="skIvedimas(this)">8</button>
+            <button id="sk9" onclick="skIvedimas(this)">9</button>
+            <button id="dalyba">÷</button>
+            <button id="memoC" onclick="C()">C</button>
+          </div>  
+          <div id="row3">
+            <button id="sk4" onclick="skIvedimas(this)">4</button>
+            <button id="sk5" onclick="skIvedimas(this)">5</button>
+            <button id="sk6" onclick="skIvedimas(this)">6</button>
+            <button id="daugyba">X</button>
+            <button id="memoCE" onclick="cancelEntry()">CE</button>          
+          </div>
+          
+          <div id="row4">
+            <button id="sk1" onclick="skIvedimas(this)">1</button>
+            <button id="sk2" onclick="skIvedimas(this)">2</button>
+            <button id="sk3" onclick="skIvedimas(this)">3</button>
+            <button id="atimtis">-</button>
+            <button id="saknis">√</button> 
+          </div>
+
+          <div id="row5">
+            <button id="keistiZenkla" onclick="keistiZenkla()">±</button>
+            <button id="sk0" onclick="skIvedimas(this)">0</button>
+            <button id="kablelis">.</button>
+            <button id="sudetis">+</button>
+            <button id="lygu">=</button> 
+          </div>
+
+
+
+        </div> <!-- klaviatura end-->	
+  	 </div> <!-- skaiciuotuvas end-->
+
+     <div id="nustatymai">
+       Pasirinkite nustatymus
+       <br>
+       <label>spalva
+        <input type="color" name="spalvyte" value="#14F061">
+        </label>
+
+        <label>intevalas</label> 
+        <input type="range" name="intervaliuks" min="1" max="5" step="1" value="3">
+
+        <label>Iškrentantis meniu su vienu pasirinkimu
+        <select name="iškrentantisMeniu">
+          <option value="vienas">pirmas</option>
+          <option value="du">antras</option>
+          <option value="trys">Trečias</option>
+          <option value="keturi"selected="selected">Ketvirtas</option>
+          <option value="penki">Penktas</option>
+        </select>
+        </label>
+
+        
+     </div>
+
+
+
+  </body>
+</html>
+
