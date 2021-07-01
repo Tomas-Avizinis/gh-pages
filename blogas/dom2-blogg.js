@@ -63,7 +63,7 @@ function naujasIrasas3 () {
         if (isorinisIrasas.status===200) {
             blogoIrasas = document.createElement('div');
             blogoIrasas.innerHTML = isorinisIrasas.responseText;
-            visasBlogas.appendChild(this.responseText);
+            visasBlogas.append(isorinisIrasas.responseText);
         }
     }
     console.log (blogoIrasas);
