@@ -51,7 +51,7 @@ function naujasIrasas2 (){
     irasoAntraste.textContent = document.getElementById('txtAntraste').value;
     irasoTekstas.textContent = document.getElementById('txtTekstas').value;
 }
-var responseText='<p>Naujas tekstas. Jei pavyks reiškia veikia!</p>';
+
 
 function naujasIrasas3 () {
     let naujasTekstas='jei nesuveiks';
@@ -62,8 +62,35 @@ function naujasIrasas3 () {
         naujasTekstas=isorinisIrasas.responseText;    
         }
     }
-    
+
     console.log (naujasTekstas);
+
+    var visasBlogas = document.getElementById('blogoIrasai');
+    var blogoIrasas, irasoData, irasoAntraste, irasoTekstas, atskyrimas;
+    var d = new Date(); 
+
+    // d = getDate();
+    atskyrimas = document.createElement('hr');
+    visasBlogas.firstElementChild.prepend(atskyrimas); //atskyrimas prieš pirmą elementą
+
+
+    blogoIrasas = document.createElement('div');
+    atskyrimas.before(blogoIrasas); //naujas įrašas prieš atskyrimą
+    blogoIrasas.className = 'irasas';
+
+    irasoData = document.createElement('p');
+    irasoData.className = 'dataLaikas';
+    irasoAntraste = document.createElement('h2');
+    irasoTekstas = document.createElement('p');
+    blogoIrasas.appendChild (irasoData);
+    blogoIrasas.appendChild(irasoAntraste);
+    blogoIrasas.appendChild(irasoTekstas);
+
+    // irasoAntraste.style--class
+
+    irasoData.textContent = d;
+    irasoAntraste.textContent = document.getElementById('txtAntraste').value;
+    irasoTekstas.textContent = naujasTekstas;
 }
 
 
