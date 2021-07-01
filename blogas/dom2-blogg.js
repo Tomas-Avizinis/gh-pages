@@ -66,7 +66,7 @@ function naujasIrasas3 () {
             visasBlogas.append(isorinisIrasas.responseText);
         }
     }
-    console.log (blogoIrasas);
+    console.log (isorinisIrasas.responseText);
 }
 
 let isorinisIrasas= new XMLHttpRequest ();
