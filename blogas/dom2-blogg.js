@@ -63,7 +63,9 @@ function naujasIrasas3 () {
         if (isorinisIrasas.status===200) {
         naujasTekstas=isorinisIrasas.responseText;
         console.log('suveikė ' naujasTekstas);
-        }
+        } else {
+    console.log('sąlyga neveikia')
+    }
     }
 
 //     console.log (naujasTekstas);
