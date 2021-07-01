@@ -95,8 +95,8 @@ function naujasIrasas3 () {
 
 
 
-// isorinisIrasas.open('GET', 'DOM2-blog-new1.html', true);
-// isorinisIrasas.send(null);
+isorinisIrasas.open('GET', 'DOM2-blog-new1.html', true);
+isorinisIrasas.send(null);
 
 document.getElementById("mygtukasIrasas").addEventListener("click", naujasIrasas2);
 document.getElementById("mygtukasAdd").addEventListener("click", naujasIrasas3);
