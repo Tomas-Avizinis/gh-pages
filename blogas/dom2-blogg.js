@@ -55,9 +55,6 @@ function naujasIrasas2 (){
 
 let isorinisIrasas= new XMLHttpRequest ();
 
-isorinisIrasas.open('GET', 'DOM2-blog-new1.html', true);
-isorinisIrasas.send(null);
-
 function naujasIrasas3 () {
     let naujasTekstas='jei nesuveiks';
     
@@ -98,7 +95,8 @@ function naujasIrasas3 () {
     irasoTekstas.textContent = naujasTekstas;
 }
 
-
+isorinisIrasas.open('GET', 'DOM2-blog-new1.html', true);
+isorinisIrasas.send(null);
 
 document.getElementById("mygtukasIrasas").addEventListener("click", naujasIrasas2);
 document.getElementById("mygtukasAdd").addEventListener("click", naujasIrasas3);
