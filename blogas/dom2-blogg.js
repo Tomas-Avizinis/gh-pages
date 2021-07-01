@@ -61,10 +61,9 @@ function naujasIrasas3 () {
         if (isorinisIrasas.status===200) {
             naujasTekstas=isorinisIrasas.responseText;
             console.log('suveikė ', naujasTekstas);
-        } else {
-            console.log('sąlyga neveikia');
+        } else {console.log('sąlyga neveikia');}
     }
-};
+}
 
 isorinisIrasas.open('GET', 'DOM2-blog-new1.html', true);
 isorinisIrasas.send(null);
