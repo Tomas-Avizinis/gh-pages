@@ -72,7 +72,7 @@ function naujasIrasas3 () {
 let isorinisIrasas= new XMLHttpRequest ();
 
 isorinisIrasas.open('GET', 'DOM2-blog-new1.html', true);
-isorinisIrasas.send();
+isorinisIrasas.send(null);
 
 document.getElementById("mygtukasIrasas").addEventListener("click", naujasIrasas2);
 document.getElementById("mygtukasAdd").addEventListener("click", naujasIrasas3);
