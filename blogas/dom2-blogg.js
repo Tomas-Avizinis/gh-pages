@@ -50,29 +50,26 @@ function naujasIrasas2 (){
     irasoData.textContent = d;
     irasoAntraste.textContent = document.getElementById('txtAntraste').value;
     irasoTekstas.textContent = document.getElementById('txtTekstas').value;
-
-    console.log(d);
 }
+var responseText='<p>Naujas tekstas. Jei pavyks reiškia veikia!</p>';
 
 function naujasIrasas3 () {
-    
-    let blogoIrasas;
-    let visasBlogas = document.getElementById('blogoIrasai');
+    let naujasTekstas='jei nesuveiks';
+    let isorinisIrasas= new XMLHttpRequest ();
 
     isorinisIrasas.onload= function() {
         if (isorinisIrasas.status===200) {
-            blogoIrasas = document.createElement('div');
-            blogoIrasas.innerHTML = isorinisIrasas.responseText;
-            visasBlogas.append(isorinisIrasas.responseText);
+        naujasTekstas=isorinisIrasas.responseText;    
         }
     }
-    console.log (isorinisIrasas.responseText);
+    
+    console.log (naujasTekstas);
 }
 
-let isorinisIrasas= new XMLHttpRequest ();
 
-isorinisIrasas.open('GET', 'DOM2-blog-new1.html', true);
-isorinisIrasas.send(null);
+
+// isorinisIrasas.open('GET', 'DOM2-blog-new1.html', true);
+// isorinisIrasas.send(null);
 
 document.getElementById("mygtukasIrasas").addEventListener("click", naujasIrasas2);
 document.getElementById("mygtukasAdd").addEventListener("click", naujasIrasas3);
