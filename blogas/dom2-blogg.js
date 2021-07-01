@@ -56,13 +56,15 @@ function naujasIrasas2 (){
 let isorinisIrasas= new XMLHttpRequest ();
 let naujasTekstas;
 
+isorinisIrasas.onload= function() {
+    if (isorinisIrasas.status===200) {
+        naujasTekstas=isorinisIrasas.responseText;
+        console.log('suveikė ', naujasTekstas);
+    } else {console.log('sąlyga neveikia');}
+}
+
 function naujasIrasas3 () {
-    isorinisIrasas.onload= function() {
-        if (isorinisIrasas.status===200) {
-            naujasTekstas=isorinisIrasas.responseText;
-            console.log('suveikė ', naujasTekstas);
-        } else {console.log('sąlyga neveikia');}
-    }
+    document.getElementById('blogoIrasai').innerText=naujasTekstas;
 }
 
 isorinisIrasas.open('GET', 'DOM2-blog-new1.html', true);
