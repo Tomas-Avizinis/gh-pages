@@ -53,9 +53,14 @@ function naujasIrasas2 (){
 }
 
 
+let isorinisIrasas= new XMLHttpRequest ();
+
+isorinisIrasas.open('GET', 'DOM2-blog-new1.html', true);
+isorinisIrasas.send(null);
+
 function naujasIrasas3 () {
     let naujasTekstas='jei nesuveiks';
-    let isorinisIrasas= new XMLHttpRequest ();
+    
 
     isorinisIrasas.onload= function() {
         if (isorinisIrasas.status===200) {
@@ -94,9 +99,6 @@ function naujasIrasas3 () {
 }
 
 
-
-isorinisIrasas.open('GET', 'DOM2-blog-new1.html', true);
-isorinisIrasas.send(null);
 
 document.getElementById("mygtukasIrasas").addEventListener("click", naujasIrasas2);
 document.getElementById("mygtukasAdd").addEventListener("click", naujasIrasas3);
