@@ -54,49 +54,17 @@ function naujasIrasas2 (){
 
 
 let isorinisIrasas= new XMLHttpRequest ();
+let naujasTekstas;
 
 function naujasIrasas3 () {
-    let naujasTekstas='jei nesuveiks';
-    
-
     isorinisIrasas.onload= function() {
         if (isorinisIrasas.status===200) {
-        naujasTekstas=isorinisIrasas.responseText;
-        console.log('suveikė ', naujasTekstas);
+            naujasTekstas=isorinisIrasas.responseText;
+            console.log('suveikė ', naujasTekstas);
         } else {
-    console.log('sąlyga neveikia')
+            console.log('sąlyga neveikia');
     }
-    }
-
-//     console.log (naujasTekstas);
-
-    var visasBlogas = document.getElementById('blogoIrasai');
-    var blogoIrasas, irasoData, irasoAntraste, irasoTekstas, atskyrimas;
-    var d = new Date(); 
-
-    // d = getDate();
-    atskyrimas = document.createElement('hr');
-    visasBlogas.firstElementChild.prepend(atskyrimas); //atskyrimas prieš pirmą elementą
-
-
-    blogoIrasas = document.createElement('div');
-    atskyrimas.before(blogoIrasas); //naujas įrašas prieš atskyrimą
-    blogoIrasas.className = 'irasas';
-
-    irasoData = document.createElement('p');
-    irasoData.className = 'dataLaikas';
-    irasoAntraste = document.createElement('h2');
-    irasoTekstas = document.createElement('p');
-    blogoIrasas.appendChild (irasoData);
-    blogoIrasas.appendChild(irasoAntraste);
-    blogoIrasas.appendChild(irasoTekstas);
-
-    // irasoAntraste.style--class
-
-    irasoData.textContent = d;
-    irasoAntraste.textContent = document.getElementById('txtAntraste').value;
-    irasoTekstas.textContent = naujasTekstas;
-}
+};
 
 isorinisIrasas.open('GET', 'DOM2-blog-new1.html', true);
 isorinisIrasas.send(null);
