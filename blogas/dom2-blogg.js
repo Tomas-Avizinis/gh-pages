@@ -61,11 +61,12 @@ function naujasIrasas3 () {
 
     isorinisIrasas.onload= function() {
         if (isorinisIrasas.status===200) {
-        naujasTekstas=isorinisIrasas.responseText;    
+        naujasTekstas=isorinisIrasas.responseText;
+        console.log('suveikė ' naujasTekstas);
         }
     }
 
-    console.log (naujasTekstas);
+//     console.log (naujasTekstas);
 
     var visasBlogas = document.getElementById('blogoIrasai');
     var blogoIrasas, irasoData, irasoAntraste, irasoTekstas, atskyrimas;
