@@ -62,8 +62,8 @@ function naujasIrasas3 () {
     isorinisIrasas.onload= function() {
         if (isorinisIrasas.status===200) {
             blogoIrasas = document.createElement('div');
-            blogoIrasas.innerHTML= isorinisIrasas.responseText;
-            visasBlogas.appendChild(blogoIrasas);
+            blogoIrasas.innerHTML = isorinisIrasas.responseText;
+            visasBlogas.appendChild(this.responseText);
         }
     }
     console.log (blogoIrasas);
