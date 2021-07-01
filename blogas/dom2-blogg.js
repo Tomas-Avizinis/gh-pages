@@ -62,7 +62,7 @@ function naujasIrasas3 () {
     isorinisIrasas.onload= function() {
         if (isorinisIrasas.status===200) {
         naujasTekstas=isorinisIrasas.responseText;
-        console.log('suveikė ' naujasTekstas);
+        console.log('suveikė ', naujasTekstas);
         } else {
     console.log('sąlyga neveikia')
     }
