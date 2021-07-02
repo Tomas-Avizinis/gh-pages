@@ -65,6 +65,10 @@ isorinisIrasas.onload= function() {
 
 function naujasIrasas3 () {
   let blogoIrasas, irasoTekstas, atskyrimas;
+
+  atskyrimas = document.createElement('hr');
+  visasBlogas.firstElementChild.prepend(atskyrimas);
+  
   blogoIrasas = document.createElement('div');
   atskyrimas.before(blogoIrasas); //naujas įrašas prieš atskyrimą
   blogoIrasas.className = 'irasas';
