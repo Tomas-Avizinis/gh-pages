@@ -58,9 +58,8 @@ let naujasTekstas;
 
 isorinisIrasas.onload= function() {
   if (isorinisIrasas.status===200) {
-      naujasTekstas=isorinisIrasas.responseText;
-      console.log('suveikė ', naujasTekstas);
-  } else {console.log('sąlyga neveikia');}
+    naujasTekstas=isorinisIrasas.responseText;
+  } 
 }
 
 function naujasIrasas3 () {
@@ -84,8 +83,28 @@ function naujasIrasas3 () {
   irasoTekstas.textContent = naujasTekstas;
 }
 
+function irasoSaugojimas() {
+  let xhttp = new XMLHttpRequest();
+  xhttp.open('POST', 'blogoIrasai.php', true); 
+  xhttp.setRequestHeader("Content-Type", "application/json");
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      // Response
+      var response = this.responseText;
+    }
+  };
+
+  let d = new Date();
+  let pavadinimas=document.getElementById('txtAntraste').value;
+  let tekstas= document.getElementById('txtTekstas').value;
+
+  let irasas = {date: d, title: pavadinimas , tekstas: tekstas};
+  xhttp.send(JSON.stringify(data));
+}
+
 isorinisIrasas.open('GET', 'DOM2-blog-new1.html', true);
 isorinisIrasas.send(null);
 
-document.getElementById("mygtukasIrasas").addEventListener("click", naujasIrasas2);
-document.getElementById("mygtukasAdd").addEventListener("click", naujasIrasas3);
+document.getElementById('mygtukasIrasas').addEventListener('click', naujasIrasas2);
+document.getElementById('mygtukasAdd').addEventListener('click', naujasIrasas3);
+document.getElementById('mygtukasSave').addEventListener('click', irasoSaugojimas);
