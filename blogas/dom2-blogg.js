@@ -99,7 +99,7 @@ function irasoSaugojimas() {
   let tekstas= document.getElementById('txtTekstas').value;
 
   let irasas = {date: d, title: pavadinimas , tekstas: tekstas};
-  xhttp.send(JSON.stringify(data));
+  xhttp.send(JSON.stringify(irasas));
 }
 
 isorinisIrasas.open('GET', 'DOM2-blog-new1.html', true);
